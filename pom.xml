@@ -6,13 +6,20 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>my-app</name>
-  <url>http://maven.apache.org</url>
-
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>http://ec2-18-130-110-45.eu-west-2.compute.amazonaws.com:8081/repository/sample-maven-release/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>http://ec2-18-130-110-45.eu-west-2.compute.amazonaws.com:8081/repository/sample-maven-snap/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
       <!-- This property will be set by the Maven Dependency plugin -->
       <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -107,16 +114,4 @@
       </plugin>
     </plugins>
   </build>
-   <distributionManagement>
-	<repository>
-		<id>deployment</id>
-		<name>Internal Release</name>
-		<url>http://ec2-18-130-110-45.eu-west-2.compute.amazonaws.com:8081/repository/sample-maven-release/</url>
-	</repository>
-	<snapshotRepository>
-		<id>deployment</id>
-		<name>Internal Snapshot</name>
-		<url>http://ec2-18-130-110-45.eu-west-2.compute.amazonaws.com:8081/repository/sample-maven-snap/</url>
-	</snapshotRepository>	
-   </distributionManagement>
 </project>
